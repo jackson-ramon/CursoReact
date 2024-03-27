@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const pokemonSlice = createSlice({
     name: 'pokemon',
@@ -12,7 +12,9 @@ export const pokemonSlice = createSlice({
             state.isLoading = true;
         },
         setPokemons: ( state, action ) => {
-            console.log(action);
+            state.isLoading = false;
+            state.page = action.payload.page;
+            state.pokemons = action.payload.pokemons;
         }
     }
 });
