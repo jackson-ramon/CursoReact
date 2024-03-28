@@ -11,11 +11,15 @@ export const todosApi = createApi({
     endpoints: (builder) => ({
         getTodos: builder.query({
             query: () => '/todos'
-        })
+        }),
+
+        getTodo: builder.query({
+            query: (todoId) => `/todos/${ todoId }`
+        }),
     })
 });
 
 // useGetTodosQuery es un custom Hook creado por RTK
 // el nombre puede ser cualquiera pero lo importante
 // es saber que createApi() devuelve un custom Hook
-export const { useGetTodosQuery } = todosApi;
+export const { useGetTodosQuery, useGetTodoQuery } = todosApi;
